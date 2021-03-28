@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Firyal Nabila Zalfa   UIN Maulana Malik Ibrahim Malang" />
+
+
+<title>Cara Untuk Menganalisis Gambar</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Yall Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="gambar.html">Analytics</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Cara Untuk Menganalisis Gambar</h1>
+<h4 class="author">Firyal Nabila Zalfa <br> UIN Maulana Malik Ibrahim Malang</h4>
+<h4 class="date">28 Maret 2021</h4>
+
+</div>
+
+
+<p>Sebelum kita mulai, pastikan dulu kita sudah menginstal package EBImage di RStudio kita. Untuk menginstalnya kalian bisa mengikuti kode dibawah ini.</p>
+<div id="started" class="section level1">
+<h1>Started</h1>
+<div id="instal-package" class="section level2">
+<h2>Instal package</h2>
+<pre><code>if(!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
+  install.packages(&quot;BiocManager&quot;)
+  BiocManager::install(&quot;EbImage&quot;)</code></pre>
+</div>
+<div id="panggil-package" class="section level2">
+<h2>Panggil package</h2>
+<p>Lalu kita memanggil library EBImage untuk memastikan bahwa package EBImage sudah terpasang di RStudio. Jika tidak menampilkan apa-apa/kosong itu menandakan bahwa package EBImage sudah siap/terpasang di RStudio kita.</p>
+<pre class="r"><code>library(EBImage)</code></pre>
+</div>
+</div>
+<div id="reading-image" class="section level1">
+<h1>Reading Image</h1>
+<p>Untuk mengimport gambar pastikan bahwa lokasi gambar yang ada pada device kita sesuai, dan ubah tanda  menjadi /. <br> Untuk membaca gambar menggunakan readImage() dan masukan lokasi gambar dan nama gambar. Dan jangan lupa memberi nama variabel/inisialisai baru untuk memanggil gambar tersebut, saya memberikan nama Image. <br> Untuk menampilkan gambar menggunakan display(Image).</p>
+<pre class="r"><code>Image &lt;- readImage(&quot;C:/Users/ASUS/OneDrive/Pictures/Kiyomizudera.jpg&quot;)
+display(Image)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="data-image" class="section level2">
+<h2>Data image</h2>
+<p>Untuk melihat data dari gambar menggunakan print(Image). Pada code ini akan menampilkan sifat gambar, nilai-nilai piksel, dan informasi lainnya.</p>
+<pre class="r"><code>print(Image)</code></pre>
+<pre><code>## Image 
+##   colorMode    : Color 
+##   storage.mode : double 
+##   dim          : 1000 667 3 
+##   frames.total : 3 
+##   frames.render: 1 
+## 
+## imageData(object)[1:5,1:6,1]
+##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]
+## [1,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [2,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [3,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [4,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [5,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7803922 0.7803922</code></pre>
+</div>
+<div id="histogram-image" class="section level2">
+<h2>Histogram image</h2>
+<p>Untuk melihat histogram dari gambar menggunakan hist(Image).</p>
+<pre class="r"><code>hist(Image)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="label-image" class="section level2">
+<h2>Label image</h2>
+<p>Untuk memberi nama diatas gambar</p>
+<pre class="r"><code>display(Image, method=&quot;raster&quot;)
+text(x = 20, y = 20, label = &quot;Kiyomizudera&quot;, adj = c(0,1), col = &quot;purple&quot;, cex = 2)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="bingkai" class="section level2">
+<h2>Bingkai</h2>
+<p>Untuk membuat bingkai pada gambar</p>
+<pre class="r"><code>nuc = readImage(system.file(&quot;images&quot;, &quot;nuclei.tif&quot;, package=&quot;EBImage&quot;))
+display(nuc, method = &quot;raster&quot;, all = TRUE)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+</div>
+<div id="editing-image" class="section level1">
+<h1>Editing image</h1>
+<p>Sekarang kita akan mengubah cahaya dan posisi dari gambar.</p>
+<div id="brightness" class="section level2">
+<h2>Brightness</h2>
+<p>Untuk memanipulasi kecerahan gambar menggunakan tanda + untuk menambah intensitas cahaya pada gambar dan tanda - untuk mengurangi intensitas cahaya pada gambar. <br> Untuk menampilkan 2 gambar menggunakan plot(Image1) dan plot (Image2). <br> Gambar sebelah kanan adalah gambar yang ditambahi intensitas cahayanya dan gambar sebelah kiri adalah gambar yang dikurangi intensitas cahayanya.</p>
+<pre class="r"><code>Image1 &lt;- Image + 0.2
+Image2 &lt;- Image - 0.2
+par(mfrow= c(1,2))
+plot(Image1)
+plot(Image2)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="adjusting-contrast" class="section level2">
+<h2>Adjusting contrast</h2>
+<p>Untuk memanipulasi gambar dengan kontars menggunakan tanda * untuk mengatur kontras pada gambar. <br> Untuk menampilkan 2 gambar menggunakan plot(Image3) dan plot (Image4). <br> Gambar sebelah kanan adalah gambar dengan kontras cahaya yang dikali 0.5 dan gambar sebelah kiri adalah gambar dengan kontar cahaya yang dikali 2.</p>
+<pre class="r"><code>Image3 &lt;- Image * 0.5
+Image4 &lt;- Image * 2
+par(mfrow= c(1,2))
+plot(Image3)
+plot(Image4)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="gamma-correction" class="section level2">
+<h2>Gamma correction</h2>
+<p>Koreksi gamma adalah nama dari operasi nonlinear yang digunakan untuk kode dan decode luminance atau tristimulus. <br> Untuk memanipulasi gambar dengan gamma menggunakan tanda ^ untuk mengatur gamma pada gambar. <br> Untuk menampilkan 2 gambar menggunakan plot(Image5) dan plot (Image6). <br> Gambar sebelah kanan adalah gambar dengan gamma sebesar 2 dan gambar sebelah kiri adalah gambar dengan gamma sebesar 0.7.</p>
+<pre class="r"><code>Image5 &lt;- Image ^ 2
+Image6 &lt;- Image ^ 0.7
+par(mfrow= c(1,2))
+plot(Image5)
+plot(Image6)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="cropping" class="section level2">
+<h2>Cropping</h2>
+<p>Untuk memotong array dari pixel gambar menggunakan display(Image[ukuran seberapa besar yang dipotong/crop]). Disini saya dengan ukuran 80:900, 100:600.</p>
+<pre class="r"><code>display(Image[80:900, 100:300,])</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="transformation-image" class="section level2">
+<h2>Transformation image</h2>
+<p>Untuk merotate gambar menggunakan code yang sudah ada di EBImage Imagetr &lt;- translate(rotate(Image, 45 (derajat gambar yang di putar)), c(50,0))</p>
+<pre class="r"><code>Imagetr &lt;- translate(rotate(Image, 45), c(50,0))
+display(Imagetr)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="color-management" class="section level2">
+<h2>Color management</h2>
+<p>Karena array pixel memiliki tiga sumbu di dimensi, contohnya 1200 x 800 x 3. Sumbu ketiga adalah slot untuk tiga saluran: merah, hijau dan biru, atau RGB. <br> Disini kita akan mengubah warna color menjadi grayscale menggunakan colormode(Image) &lt;- Grayscale. <br> Untuk menampilkan gambar menggunakan display(Image). <br> Gambar berubah warna menjadi abu-abu.</p>
+<pre class="r"><code>colorMode(Image) &lt;- Grayscale
+display(Image)</code></pre>
+<pre><code>## Only the first frame of the image stack is displayed.
+## To display all frames use &#39;all = TRUE&#39;.</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div id="data-image-1" class="section level3">
+<h3>Data image</h3>
+<p><br> Untuk melihat data dari gambar menggunakan print(Image). Pada code ini akan menampilkan sifat gambar, nilai-nilai piksel, dan informasi lainnya.</p>
+<pre class="r"><code>print(Image)</code></pre>
+<pre><code>## Image 
+##   colorMode    : Grayscale 
+##   storage.mode : double 
+##   dim          : 1000 667 3 
+##   frames.total : 3 
+##   frames.render: 3 
+## 
+## imageData(object)[1:5,1:6,1]
+##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]
+## [1,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [2,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [3,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [4,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353 0.7882353
+## [5,] 0.7882353 0.7882353 0.7882353 0.7882353 0.7803922 0.7803922</code></pre>
+</div>
+<div id="histogram-image-1" class="section level3">
+<h3>Histogram image</h3>
+<p>Untuk melihat histogram dari gambar menggunakan hist(Image).</p>
+<pre class="r"><code>hist(Image)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="color" class="section level3">
+<h3>Color</h3>
+<p>Untuk mengembalikan warna gambar seperti semula menggunakan colorMode(Image) &lt;- Color. <br> Untuk menampilkan gambar menggunakan display(Image).</p>
+<pre class="r"><code>colorMode(Image) &lt;- Color
+display(Image)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+</div>
+<div id="manipulating-image" class="section level2">
+<h2>Manipulating image</h2>
+<p>Untuk memanipulasi gambar yang menghasilkan gambar negatif</p>
+<pre class="r"><code>img_neg = max(Image) - Image
+display( img_neg )</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>img_t = transpose(Image)
+display( img_t )</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+</div>
+<div id="filtering" class="section level1">
+<h1>Filtering</h1>
+<p>Untuk melakukan smoothing/blurring menggunakan low-pass filter dan high-pass filter, dan median filter.</p>
+<div id="low-pass-filter" class="section level2">
+<h2>Low-pass filter</h2>
+<pre class="r"><code>flow &lt;- makeBrush(21, shape= &#39;disc&#39;, step=FALSE)^2
+flow &lt;- flow/sum(flow)
+Image.flow &lt;- filter2(Image, flow)
+display(Image.flow)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="high-pass-filter" class="section level2">
+<h2>High-pass filter</h2>
+<pre class="r"><code>fHigh &lt;- matrix(1, nc= 3, nr= 3)
+fHigh[2, 2] &lt;- -8
+Image.fHigh &lt;- filter2(Image, fHigh)
+display(Image.fHigh)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="median-filter" class="section level2">
+<h2>Median filter</h2>
+<p>Untuk menghilangkan noise pada gambar menggunakan medFLTR &lt;- medianFilter(Image, 1.1). <br> Gambar sebelah kanan adalah gambar noise dan gambar sebelah kiri adalah hasil gambar yang sudah dihilangkan noisenya.</p>
+<pre class="r"><code>Image &lt;- readImage(&quot;C:/Users/ASUS/OneDrive/Pictures/lena.jpg&quot;)
+medFltr &lt;- medianFilter(Image, 1.1)
+par(mfrow= c(1,2))
+plot(Image)
+plot(medFltr)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Hasil gambar lebih jelasnya</p>
+<pre class="r"><code>display(medFltr)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+</div>
+</div>
+<div id="operasi-morfologis" class="section level1">
+<h1>Operasi morfologis</h1>
+<p>Sebuah elemen penataan di atas gambar</p>
+<pre class="r"><code>shapes = readImage(system.file(&#39;images&#39;, &#39;shapes.png&#39;, package=&#39;EBImage&#39;))
+logo = shapes[110:512,1:130]
+display(logo)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre class="r"><code>kern = makeBrush(5, shape=&#39;diamond&#39;)
+display(kern, interpolate=FALSE)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre class="r"><code>logo_erode= erode(logo, kern)
+logo_dilate = dilate(logo, kern)
+
+display(combine(logo_erode, logo_dilate), all=TRUE)</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
+<div id="segmentasi-image" class="section level1">
+<h1>Segmentasi image</h1>
+<p>Segmentasi gambar melakukan partisi gambar, dan biasanya digunakan untuk mengidentifikasi objek dalam gambar. Objek terhubung yang tidak bersentuhan dapat disegmentasi menggunakan fungsi bwlabel, sedangkan DAS dan propagasi menggunakan algoritma yang lebih canggih yang dapat memisahkan objek yang saling bersentuhan.</p>
+<pre class="r"><code>logo_label = bwlabel(logo)
+table(logo_label)</code></pre>
+<pre><code>## logo_label
+##     0     1     2     3     4     5     6     7 
+## 42217  1375  2012   934  1957  1135  1697  1063</code></pre>
+<p>Nilai maksimal jumlah objek di dalamnya</p>
+<pre class="r"><code>max(logo_label)</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>display( normalize(logo_label) )</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>Memberikan warna pada logo</p>
+<pre class="r"><code>display( colorLabels(logo_label) )</code></pre>
+<p><img src="gambar_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+</div>
+<div id="daftar-pustaka" class="section level1">
+<h1>Daftar Pustaka</h1>
+<p>Berikut adalah sumber referensi yang digunakan dalam pembuatan web ini: <br> 1. <a href="https://thinkstudioo.blogspot.com/2018/03/analisis-image-menggunakan-ebimage-di-r.html" class="uri">https://thinkstudioo.blogspot.com/2018/03/analisis-image-menggunakan-ebimage-di-r.html</a> <br> 2. <a href="https://thinkstudioo.blogspot.com/2018/03/analisis-image-menggunakan-ebimage-di-r_6.html" class="uri">https://thinkstudioo.blogspot.com/2018/03/analisis-image-menggunakan-ebimage-di-r_6.html</a> <br> 3. <a href="http://www.socr.umich.edu/people/dinov/courses/DSPA_notes/DSPA_Appendix_6_ImageFilteringSpectralProcessing.html#1_Getting_started" class="uri">http://www.socr.umich.edu/people/dinov/courses/DSPA_notes/DSPA_Appendix_6_ImageFilteringSpectralProcessing.html#1_Getting_started</a></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
